@@ -1,2 +1,2 @@
 # Ping_Pong
- Meu primeiro jogo para práticar programação com Javascript
+ Meu primeiro jogo baseado na linguagem de programação Javascript
