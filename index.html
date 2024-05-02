@@ -30,10 +30,11 @@
     }
 
     function draw(){ // FUNÇÃO DESENHO
-
+      // CAMPO
       canvasCtx.fillStyle = "#286047" //cor do campo
       canvasCtx.fillRect(0,0, window.innerWidth, window.innerHeight) // desenho do retangulo do campo
 
+      // LINHA CENTRAL
       canvasCtx.fillStyle = "#ffffff" // cor da linha
 
       const x = window.innerWidth / 2 - lineWidth / 2
@@ -42,7 +43,14 @@
       const h = window.innerHeight
 
       canvasCtx.fillRect(x,y,w,h)
+
+      // DESENHO DA RAQUETE ESQUERDA
       
+      canvasCtx.fillRect(10,500,lineWidth,200)
+
+      // RESENHO DA RAQUETE DIREITA
+      
+      canvasCtx.fillRect(window.innerWidth-lineWidth-10,120,lineWidth,200)
     }
 
     setup()
