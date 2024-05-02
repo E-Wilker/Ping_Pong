@@ -45,20 +45,25 @@
       canvasCtx.fillRect(x,y,w,h)
 
       // DESENHO DA RAQUETE ESQUERDA
-      
       canvasCtx.fillRect(10,500,lineWidth,200) //com base em (x,y,w,h)
 
       // DESENHO DA RAQUETE DIREITA
-      
       canvasCtx.fillRect(window.innerWidth-lineWidth-10,120,lineWidth,200) //com base em (x,y,w,h) 
       // onde x = larguraCampo-larguraLinha-10
 
       //DESENHO DA BOLA
-
       canvasCtx.beginPath()
       canvasCtx.arc(200,300,20,0,2*Math.PI, false)
       canvasCtx.fill()
 
+      //DESENHO DO PLACAR
+
+      canvasCtx.font = "bold 72px Arial" // letra
+      canvasCtx.textAlign = "center" // alinhamento
+      canvasCtx.textBaseline = "top" //posição do texto
+      canvasCtx.fillStyle = "#01341D" //cor
+      canvasCtx.fillText("3", window.innerWidth/4,50) // posição placar esquerdo em 1/4
+      canvasCtx.fillText("1", window.innerWidth/4 + window.innerWidth/2,50) // posição placar esquerdo em 1/4 + 1/2
     }
 
     setup()
