@@ -46,11 +46,19 @@
 
       // DESENHO DA RAQUETE ESQUERDA
       
-      canvasCtx.fillRect(10,500,lineWidth,200)
+      canvasCtx.fillRect(10,500,lineWidth,200) //com base em (x,y,w,h)
 
-      // RESENHO DA RAQUETE DIREITA
+      // DESENHO DA RAQUETE DIREITA
       
-      canvasCtx.fillRect(window.innerWidth-lineWidth-10,120,lineWidth,200)
+      canvasCtx.fillRect(window.innerWidth-lineWidth-10,120,lineWidth,200) //com base em (x,y,w,h) 
+      // onde x = larguraCampo-larguraLinha-10
+
+      //DESENHO DA BOLA
+
+      canvasCtx.beginPath()
+      canvasCtx.arc(200,300,20,0,2*Math.PI, false)
+      canvasCtx.fill()
+
     }
 
     setup()
