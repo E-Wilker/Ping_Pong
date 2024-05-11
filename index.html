@@ -117,7 +117,7 @@
       
     }
 
-    window.animateFrame = (funtion (){
+    window.animateFrame = (function (){
       return (
         window.requestAnimationframe ||
         window.webkitRequestAnimationFrame ||
@@ -130,10 +130,11 @@
       )
     })()  
 
-    funtion main(){
+    function main(){
       animateFrame(main)
       draw()
     }
+
     setup()
     main()
 
