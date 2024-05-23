@@ -99,19 +99,18 @@
 
     //OBJETO BOLA
     const ball = {
-      x:300,
-      y:100,
-      r:20,
+      x:0,
+      y:0,
+      r:30,
       speed:5,
-      
       directionX: 1,
       directionY: 1,
-
-      _calcPosition: function(){
-        if(this.y > field.h - this.r && this.directionY > 0){ 
-          
-        this._reverseY()
-       }
+      _calcPosition: function(){ //verificar as laterais superior e inferior do campo
+        if((this.y-this.r < 0 && this.directionY < 0) ||//borda superior do campo
+          (this.y > field.h - this.r && this.directionY > 0)) //borda inferior do campo
+        { 
+        this._reverseY() // rebate a bola invertendo y
+        }
       }, 
 
       _reverseX: function (){
@@ -122,8 +121,6 @@
         this.directionY *= -1
       },
 
-
-        
       _move: function(){
         this.x += this.directionX * this.speed
         this.y += this.directionY * this.speed
@@ -136,7 +133,6 @@
         canvasCtx.fill()
         this._calcPosition()       
         this._move()
-
       },
     }
 
@@ -175,7 +171,7 @@
     setup()
     main()
 
-    canvasEl.addEventListener("mousemove", function (e) {    //evento que escuta o mouse
+      canvasEl.addEventListener("mousemove", function (e) {    //evento que escuta o mouse
       mouse.x = e.pageX
       mouse.y = e.pageY
 
