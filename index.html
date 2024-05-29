@@ -30,7 +30,7 @@
       y: 0,
     }
 
-    //OBJETO CAMPO
+    //CAMPO
     const field = {
       w: window.innerWidth,
       h: window.innerHeight,
@@ -40,7 +40,7 @@
       }
     }
 
-    //OBJETO LINHA CENTRAL
+    //LINHA CENTRAL
     const line = {
       w: 15,
       h: field.h,
@@ -50,7 +50,7 @@
       },
     }
 
-    //OBJETO RAQUETE ESQUERDA
+    //RAQUETE ESQUERDA
     const leftPaddle = {
       x: gapx,
       y: 0,
@@ -67,7 +67,7 @@
       },
     }
 
-    //OBJETO RAQUETE DIREITA
+    //RAQUETE DIREITA
     const rightPaddle = {
       x: field.w - line.w - gapx,
       y: 100,
@@ -83,10 +83,10 @@
       },
     }
 
-    //OBJETO PLACAR >> tem que ficar acima da bola pelo fato do canvas sem organizado em empilhamento
+    //PLACAR >> tem que ficar acima da bola pelo fato do canvas sem organizado em empilhamento
     const score ={
-      human: 1, 
-      computer: 3,
+      human: 0, 
+      computer: 0,
       increaseHuman: function(){
         this.human ++
       },
@@ -104,12 +104,12 @@
       }
     }
 
-    //OBJETO BOLA
+    //BOLA
     const ball = {
       x:0,
       y:0,
       r:30,
-      speed:5,
+      speed:7,
       directionX: 1,
       directionY: 1,
 
@@ -125,6 +125,20 @@
           score.increaseHuman()//pontar jogar 1
           this._pointUp ()
         }
+        }
+
+        if(this.x < this.r + leftPaddle.w + + gapx){ //verifca de se o jogador fez ponto
+
+          // verificar se a raquete esq esta na posição y
+          if(this.y + this.r > leftPaddle.y && 
+            this.y - this.r < leftPaddle.y + leftPaddle.h){
+
+            this._reverseX() // rebate a bola invetendo o sinal de x
+          }
+          else{
+            score.increaseComputer()
+            this._pointUp()
+          }
         }
 
         if((this.y-this.r < 0 && this.directionY < 0) ||//borda superior do campo
